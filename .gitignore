@@ -30,4 +30,5 @@ dist-ssr
 archive/
 
 __pycache__/
+fine_food_paper_model/
 *.safetensors
