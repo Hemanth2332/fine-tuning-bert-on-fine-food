@@ -51,6 +51,11 @@ We use the [Amazon Fine Food Reviews](https://www.kaggle.com/datasets/snap/amazo
     - Download the `Reviews.csv` file from the [Kaggle dataset page](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews).
     - Place it in the root directory of the project or in a `data/` folder.
 
+  ## ⚠️ **Important Note:**
+
++  Change the location of the dataset file in `fine_food_train.py` file (If needed).
++  Because of my hardware limitation only  `300000` sample size is used. Feel free the change the parameters in the `fine_food_train.py` file 😊
+
 ## Usage
 
 ### 1. Data Preparation and Preprocessing
@@ -107,10 +112,23 @@ After fine-tuning for 3 epochs, the model typically achieves the following perfo
 ### <u>Inference results</u>
 ![inference results](results/inference_result.png)
 
+## Future Work
 
-## ⚠️ **Warning:**
+- Extend to a 5-class classification (1 to 5 stars).
+- Experiment with other pre-trained models like `RoBERTa` or `DistilBERT`.
+- Deploy the model as a web API using FastAPI or Flask.
+- Create a simple web interface with Gradio or Streamlit.
 
-+  Change the location of the dataset file in `fine_food_train.py` file.
-+ Since my hardware limitation I have only used the sample size of `300000`. Feel free the change the parameters in the `fine_food_train.py` file
+## Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Hemanth2332/fine-tuning-bert-on-fine-food/issues).
+
+## Acknowledgments
+
+- Hugging Face for the incredible [`transformers`](https://github.com/huggingface/transformers) library.
+- Amazon for the [Fine Food Reviews dataset](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews).
+- The NLP community for excellent tutorials and resources.
+
+---
 
 
