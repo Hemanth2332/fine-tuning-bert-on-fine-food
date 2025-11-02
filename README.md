@@ -89,12 +89,15 @@ The model is evaluated on the held-out validation set. The script calculates:
 - **Recall**
 - **F1-Score**
 - **Classification Report**
+  
+## Results
 
+After fine-tuning for 3 epochs, the model typically achieves the following performance on the validation set:
 
-## ⚠️ **Warning:**
-
-+  Change the location of the dataset file in `fine_food_train.py` file.
-+ Since my hardware limitation I have only used the sample size of `300000`. Feel free the change the parameters in the `fine_food_train.py` file
+| Metric    | Score  |
+|-----------|--------|
+| Accuracy  | ~95%   |
+| F1-Score  | ~95%   |
 
 ## Results
 
@@ -105,6 +108,9 @@ The model is evaluated on the held-out validation set. The script calculates:
 ![inference results](results/inference_result.png)
 
 
+## ⚠️ **Warning:**
 
++  Change the location of the dataset file in `fine_food_train.py` file.
++ Since my hardware limitation I have only used the sample size of `300000`. Feel free the change the parameters in the `fine_food_train.py` file
 
 
