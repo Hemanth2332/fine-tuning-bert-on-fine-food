@@ -104,8 +104,6 @@ After fine-tuning for 3 epochs, the model typically achieves the following perfo
 | Accuracy  | ~95%   |
 | F1-Score  | ~95%   |
 
-## Results
-
 ### <u>Validation results</u>
 ![validation results](results/validation_result.png)
 
