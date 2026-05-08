@@ -28,7 +28,11 @@ dist-ssr
 .server.py
 *.zip
 archive/
+.venv/
 
 __pycache__/
 fine_food_paper_model/*
 *.safetensors
+
+data
+
