@@ -35,4 +35,6 @@ fine_food_paper_model/*
 *.safetensors
 
 data
+bert-lora*
+wandb
 

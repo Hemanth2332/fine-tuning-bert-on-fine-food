@@ -14,8 +14,9 @@ from model_setup import (
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from datasets import Dataset
+import wandb
 
-
+MODEL_NAME = "bert-base-uncased"
 
 df = pd.read_csv(r"data/balanced_reviews.csv")
 
@@ -54,13 +55,27 @@ test_dataset = test_dataset.remove_columns(
 )
 
 # Torch format
-train_dataset.set_format("torch")
-test_dataset.set_format("torch")
+train_dataset.set_format(type="torch",columns=["input_ids", "attention_mask", "labels"])
+test_dataset.set_format(type="torch", columns=["input_ids", "attention_mask", "labels"])
 
 
 print("Setting up the model....")
 model = setup_model()
 
+
+wandb.init(
+    project="finefood-lora",
+    name="bert-lora-run",
+    config={
+        "model": MODEL_NAME,
+        "epochs": 3,
+        "batch_size": 32,
+        "learning_rate": 2e-4,
+        "lora_r": 8,
+        "lora_alpha": 16
+    }
+)
+wandb.watch(model, log="all")
 
 
 print("Setting up the trainer....")
@@ -76,7 +91,7 @@ trainer = Trainer(
 
 
 print("Training your lora...")
-trainer.train()
+trainer.train(resume_from_checkpoint=True)
 
 model.save_pretrained("./bert-lora-adapter")
 tokenizer.save_pretrained("./bert-lora-adapter")

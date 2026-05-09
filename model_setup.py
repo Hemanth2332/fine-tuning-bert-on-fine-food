@@ -7,8 +7,6 @@ from transformers import BertTokenizer, BertForSequenceClassification, TrainingA
 from peft import LoraConfig, get_peft_model, TaskType
 
 
-
-
 MODEL_NAME = "bert-base-uncased"
 
 tokenizer = BertTokenizer.from_pretrained(MODEL_NAME)
@@ -65,25 +63,29 @@ def get_training_args():
 
     return TrainingArguments(
         output_dir="./bert-lora-finefood",
+
         learning_rate=2e-4,
-        
+
         per_device_train_batch_size=32,
         per_device_eval_batch_size=32,
-        
+
         gradient_accumulation_steps=1,
-        
-        num_train_epochs=3,
+
+        num_train_epochs=6,
         weight_decay=0.01,
 
         eval_strategy="epoch",
         save_strategy="epoch",
-        # logging_steps=100,
-        
-        fp16=torch.cuda.is_available(), 
+
+        fp16=torch.cuda.is_available(),
+
         load_best_model_at_end=True,
-        metric_for_best_model="eval_f1",
-        
+        metric_for_best_model="f1",
+
         logging_strategy="steps",
         logging_steps=100,
-        report_to="all",
+
+        report_to="wandb",
+
+        run_name="bert-lora-finefood-steps"
     )
